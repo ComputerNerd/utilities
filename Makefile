@@ -10,7 +10,7 @@ ifeq ($(strip $(FXCGSDK)),)
 export FXCGSDK := $(abspath ../../)
 endif
 
-include $(FXCGSDK)/common/prizm_rules
+include $(FXCGSDK)/toolchain/prizm_rules
 
 
 #---------------------------------------------------------------------------------
@@ -41,12 +41,12 @@ COMMONFLAGS = -Os -flto -fno-exceptions -Wall $(MACHDEP) $(INCLUDE) -D__GIT_VERS
 CFLAGS	= -std=c99 $(COMMONFLAGS)
 CXXFLAGS	=	-std=c++11 $(COMMONFLAGS)
 
-LDFLAGS	= $(MACHDEP) -T$(FXCGSDK)/common/prizm.ld -Os -flto -Wl,-static -Wl,-gc-sections
+LDFLAGS	= $(MACHDEP) -T$(FXCGSDK)/toolchain/prizm.x -Os -flto -Wl,-static -Wl,-gc-sections
 
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	 -lfxcg -lc -lgcc
+LIBS	:=	 -lc -lfxcg -lgcc
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
