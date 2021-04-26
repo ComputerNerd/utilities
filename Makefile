@@ -37,7 +37,7 @@ GIT_TIMESTAMP += "$(shell git log --pretty=format:'%aD' -1)"
 
 MKG3AFLAGS := -n basic:Utilities -n internal:UTILS -i uns:../unselected.bmp -i sel:../selected.bmp
 
-COMMONFLAGS = -Os -flto -fno-exceptions -Wall $(MACHDEP) $(INCLUDE) -D__GIT_VERSION=\"$(GIT_VERSION)\" -D__GIT_TIMESTAMP=\"$(GIT_TIMESTAMP)\" $(CUSTOM_FLAGS)
+COMMONFLAGS = -Os -flto -fno-exceptions -Wall $(MACHDEP) $(INCLUDE) -D__GIT_VERSION=\"$(GIT_VERSION)\" -D__GIT_TIMESTAMP=\"$(GIT_TIMESTAMP)\" -DENABLE_PICOC_SUPPORT $(CUSTOM_FLAGS)
 CFLAGS	= -std=c99 $(COMMONFLAGS)
 CXXFLAGS	=	-std=c++11 $(COMMONFLAGS)
 
